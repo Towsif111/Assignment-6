@@ -28,6 +28,24 @@ const productIcons = {
   9: cartIcon,
 }
 
+const steps = [
+  {
+    title: 'Create Account',
+    description: 'Sign up for free in seconds. No credit card required to get started.',
+    icon: userIcon,
+  },
+  {
+    title: 'Choose Products',
+    description: 'Browse our catalog and select the tools that fit your needs.',
+    icon: packageIcon,
+  },
+  {
+    title: 'Start Creating',
+    description: 'Download and start using your premium tools immediately.',
+    icon: rocketIcon,
+  },
+]
+
 function App() {
   const [activeView, setActiveView] = useState('products')
   const [cartItems, setCartItems] = useState([])
@@ -163,14 +181,14 @@ function App() {
         </div>
 
         {activeView === 'products' ? (
-          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
             {productsData.map((product) => (
               <article
                 key={product.id}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="mb-4 flex items-start justify-between">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 p-2">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 p-2">
                     <img
                       src={productIcons[product.id]}
                       alt={product.name}
@@ -181,16 +199,16 @@ function App() {
                     {product.tagType}
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900">{product.name}</h3>
+                <h3 className="text-xl font-bold text-slate-900">{product.name}</h3>
                 <p className="mt-2 min-h-12 text-sm text-slate-600">{product.description}</p>
-                <p className="mt-4 text-3xl font-black text-slate-900">
+                <p className="mt-3 text-2xl font-black text-slate-900">
                   ${product.price}
                   <span className="ml-1 text-sm font-medium text-slate-500">/{product.period}</span>
                 </p>
                 <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
                   {product.tag}
                 </p>
-                <ul className="mt-4 space-y-2 text-sm text-slate-700">
+                <ul className="mt-3 space-y-1.5 text-sm text-slate-700">
                   {product.features.map((feature) => (
                     <li key={feature} className="flex gap-2">
                       <span className="text-emerald-500">✓</span>
@@ -199,7 +217,7 @@ function App() {
                   ))}
                 </ul>
                 <button
-                  className="mt-5 w-full rounded-full px-5 py-3 text-sm font-semibold text-white shadow-lg brand-bg"
+                  className="mt-4 w-full rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-lg brand-bg"
                   onClick={() => handleAddToCart(product)}
                 >
                   {addedProductId === product.id ? 'Added to Cart' : 'Buy Now'}
@@ -248,6 +266,32 @@ function App() {
           </section>
         )}
       </main>
+
+      <section className="bg-slate-100 py-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center text-4xl font-black text-slate-900">Get Started In 3 Steps</h2>
+          <p className="mt-2 text-center text-slate-500">
+            Start using premium digital tools in minutes, not hours.
+          </p>
+          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
+            {steps.map((step, index) => (
+              <article
+                key={step.title}
+                className="relative min-h-80 rounded-2xl border border-slate-200 bg-white px-6 pb-8 pt-8 text-center"
+              >
+                <p className="absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 text-xs font-bold text-white">
+                  0{index + 1}
+                </p>
+                <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-indigo-100 text-2xl">
+                  <img src={step.icon} alt={step.title} className="h-9 w-9 object-contain" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900">{step.title}</h3>
+                <p className="mx-auto mt-3 max-w-xs text-base leading-relaxed text-slate-600">{step.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
