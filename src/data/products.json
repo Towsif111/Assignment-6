@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "name": "AI Writing Pro",
+    "description": "Generate high-quality content, blog posts, and marketing copy in seconds.",
+    "price": 29,
+    "period": "one-time",
+    "tag": "Top Choice",
+    "tagType": "best seller",
+    "features": [
+      "Unlimited AI generations",
+      "50+ writing templates",
+      "SEO optimization"
+    ],
+    "icon": "📝"
+  },
+  {
+    "id": 2,
+    "name": "Design Templates Pack",
+    "description": "2000+ ready-made templates for social media, branding, and presentations.",
+    "price": 49,
+    "period": "one-time",
+    "tag": "Trending",
+    "tagType": "popular",
+    "features": [
+      "Commercial license",
+      "Editable in Figma",
+      "New drops every month"
+    ],
+    "icon": "🎨"
+  },
+  {
+    "id": 3,
+    "name": "Premium Stock Assets",
+    "description": "Access millions of royalty-free photos, vectors, videos, and illustrations.",
+    "price": 19,
+    "period": "monthly",
+    "tag": "Growing Fast",
+    "tagType": "new",
+    "features": [
+      "1M+ assets",
+      "No attribution required",
+      "Weekly fresh uploads"
+    ],
+    "icon": "🖼️"
+  },
+  {
+    "id": 4,
+    "name": "Automation Toolkit",
+    "description": "Automate repetitive tasks and save time with no-code workflows and triggers.",
+    "price": 79,
+    "period": "yearly",
+    "tag": "Productivity",
+    "tagType": "popular",
+    "features": [
+      "30+ integrations",
+      "Custom automations",
+      "Real-time sync"
+    ],
+    "icon": "⚙️"
+  },
+  {
+    "id": 5,
+    "name": "Resume Builder Pro",
+    "description": "Build ATS-friendly resumes and cover letters with guided templates.",
+    "price": 15,
+    "period": "one-time",
+    "tag": "Career Boost",
+    "tagType": "new",
+    "features": [
+      "100+ templates",
+      "ATS optimization",
+      "Export to PDF"
+    ],
+    "icon": "📄"
+  },
+  {
+    "id": 6,
+    "name": "Social Media Content Kit",
+    "description": "Plan, write, and publish engaging social media content across platforms.",
+    "price": 39,
+    "period": "monthly",
+    "tag": "Creator Favorite",
+    "tagType": "best seller",
+    "features": [
+      "Content calendar",
+      "Caption generator",
+      "Analytics snapshot"
+    ],
+    "icon": "📱"
+  },
+  {
+    "id": 7,
+    "name": "Email Campaign Studio",
+    "description": "Create, automate, and optimize high-converting email campaigns with ease.",
+    "price": 25,
+    "period": "monthly",
+    "tag": "Marketing",
+    "tagType": "popular",
+    "features": [
+      "Drag-and-drop builder",
+      "A/B subject testing",
+      "Audience segmentation"
+    ],
+    "icon": "✉️"
+  },
+  {
+    "id": 8,
+    "name": "Brand Kit Generator",
+    "description": "Generate instant brand systems with logos, typography, and color presets.",
+    "price": 59,
+    "period": "one-time",
+    "tag": "Design",
+    "tagType": "new",
+    "features": [
+      "Logo variations",
+      "Color palette export",
+      "Brand guideline PDF"
+    ],
+    "icon": "🎯"
+  },
+  {
+    "id": 9,
+    "name": "Analytics Dashboard Pro",
+    "description": "Track performance metrics and visualize business growth in real time.",
+    "price": 89,
+    "period": "yearly",
+    "tag": "Insights",
+    "tagType": "best seller",
+    "features": [
+      "Live KPI monitoring",
+      "Custom report templates",
+      "CSV and PDF export"
+    ],
+    "icon": "📊"
+  }
+]
