@@ -70,6 +70,23 @@ function App() {
           />
         </div>
       </section>
+
+      <section className="brand-bg text-white stats-band">
+        <div className="mx-auto grid max-w-5xl grid-cols-3 gap-2 px-4 py-9 text-center sm:px-6">
+          <div>
+            <p className="text-4xl font-black">50K+</p>
+            <p className="text-sm text-white/80">Active Users</p>
+          </div>
+          <div className="border-x border-white/20">
+            <p className="text-4xl font-black">200+</p>
+            <p className="text-sm text-white/80">Premium Tools</p>
+          </div>
+          <div>
+            <p className="text-4xl font-black">4.9</p>
+            <p className="text-sm text-white/80">Rating</p>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
