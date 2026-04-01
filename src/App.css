@@ -1,7 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&display=swap');
+
 .page-shell {
   min-height: 100vh;
   color: #2f3f5b;
   background: #f2f5f9;
+}
+
+.hero-title {
+  font-family: 'Manrope', sans-serif;
+  font-style: normal;
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 14px 0 0;
+}
+
+.hero-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 24px 56px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
+}
+
+.hero-copy {
+  max-width: 640px;
+}
+
+.hero-badge {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: #dfe3ff;
+  color: #4f45e6;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 8px 14px;
+}
+
+.hero-description {
+  margin: 20px 0 0;
+  max-width: 620px;
+  color: #52617c;
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.hero-actions {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-btn-primary,
+.hero-btn-secondary {
+  border-radius: 999px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 14px 28px;
+  cursor: pointer;
+}
+
+.hero-btn-primary {
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(79, 69, 230, 0.28);
+}
+
+.hero-btn-secondary {
+  background: #ffffff;
+  border: 1px solid #b8c2ff;
+  color: #4f45e6;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-media {
+  width: 100%;
+}
+
+.hero-image {
+  min-height: 640px;
+  border-radius: 24px;
 }
 
 .topbar {
@@ -163,5 +252,36 @@
   .cta-button {
     font-size: 19px;
     padding: 11px 18px;
+  }
+
+  .hero-title {
+    font-size: 44px;
+    line-height: 1.12;
+  }
+
+  .hero-section {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 16px 18px 40px;
+  }
+
+  .hero-badge {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .hero-description {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    font-size: 16px;
+    padding: 12px 22px;
+  }
+
+  .hero-image {
+    min-height: 320px;
   }
 }
