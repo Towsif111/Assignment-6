@@ -1,6 +1,8 @@
 
 import { useRef, useState } from 'react'
 import './App.css'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/ReactToastify.css'
 import playIcon from './assets/Play.png'
 import heroBanner from './assets/banner.png'
 import productsData from './data/products.json'
@@ -110,11 +112,29 @@ function App() {
 
     setCartItems((prev) => [...prev, { ...product, cartItemId }])
     setAddedProductId(product.id)
+    toast.success(`${product.name} added to cart`)
   }
 
   const handleRemoveFromCart = (cartItemId) => {
+    const removedItem = cartItems.find((item) => item.cartItemId === cartItemId)
     setCartItems((prev) => prev.filter((item) => item.cartItemId !== cartItemId))
+    if (removedItem) {
+      toast.info(`${removedItem.name} removed from cart`)
+    }
   }
+
+  const handleCheckout = () => {
+    if (cartItems.length === 0) {
+      toast.info('Your cart is already empty')
+      return
+    }
+
+    setCartItems([])
+    setAddedProductId(null)
+    toast.success('Proceeding to checkout... cart cleared')
+  }
+
+  const cartTotal = cartItems.reduce((total, item) => total + Number(item.price), 0)
 
   return (
     <div className="page-shell">
@@ -134,7 +154,7 @@ function App() {
 
           <div className="actions">
             <button
-              className="icon-button"
+              className="icon-button relative"
               aria-label="Open cart"
               onClick={() => setActiveView('cart')}
             >
@@ -143,6 +163,11 @@ function App() {
                 <circle cx="10" cy="20" r="1" />
                 <circle cx="18" cy="20" r="1" />
               </svg>
+              {cartItems.length > 0 ? (
+                <span className="absolute -right-2 -top-2 inline-flex min-h-5 min-w-5 items-center justify-center rounded-full bg-rose-500 px-1 text-[10px] font-bold text-white">
+                  {cartItems.length}
+                </span>
+              ) : null}
             </button>
             <button className="login-button">Login</button>
             <button className="cta-button">Get Started</button>
@@ -313,6 +338,23 @@ function App() {
                     </button>
                   </div>
                 ))}
+
+                <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4">
+                  <div className="flex items-center justify-between text-slate-700">
+                    <p className="text-sm font-semibold">Total selected products</p>
+                    <p className="text-sm font-semibold">{cartItems.length}</p>
+                  </div>
+                  <div className="mt-2 flex items-center justify-between text-slate-900">
+                    <p className="text-base font-bold">Total Price</p>
+                    <p className="text-xl font-black">${cartTotal}</p>
+                  </div>
+                  <button
+                    className="mt-4 w-full rounded-full px-5 py-3 text-sm font-semibold text-white shadow-lg brand-bg"
+                    onClick={handleCheckout}
+                  >
+                    Proceed to Checkout
+                  </button>
+                </div>
               </div>
             )}
           </section>
@@ -399,9 +441,9 @@ function App() {
           <div className="lg:col-span-2">
             <h3 className="text-3xl font-black text-white">DigiTools</h3>
             <p className="mt-3 max-w-sm text-sm text-slate-400">
-              Premium digital tools for creators, 
-              <br/>professionals, and businesses. Work
-              smarter <br/>with our suite of powerful tools.
+              Premium digital tools for creators,
+              <br />professionals, and businesses. Work
+              smarter <br />with our suite of powerful tools.
             </p>
           </div>
 
@@ -463,17 +505,25 @@ function App() {
           </div>
         </div>
 
-        <div className="border-t border-slate-800">
-          <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-4 py-8 text-slate-500 sm:px-6 md:flex-row lg:px-8">
+        <div className="border-t border-slate-800 px-4 py-5 text-xs text-slate-500">
+          <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 sm:px-6 md:flex-row lg:px-8">
             <p>© 2026 DigiTools. All rights reserved.</p>
-            <div className="flex items-center gap-8 text-sm">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
-              <a href="#">Cookies</a>
+            <div className="flex items-center gap-6">
+              <a href="#" className="transition hover:text-slate-300">
+                Privacy Policy
+              </a>
+              <a href="#" className="transition hover:text-slate-300">
+                Terms of Service
+              </a>
+              <a href="#" className="transition hover:text-slate-300">
+                Cookies
+              </a>
             </div>
           </div>
         </div>
       </footer>
+
+      <ToastContainer position="top-right" autoClose={2000} />
     </div>
   )
 }

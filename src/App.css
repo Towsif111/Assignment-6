@@ -119,6 +119,10 @@
   letter-spacing: -0.03em;
 }
 
+
+button {
+  cursor: pointer;
+}
 .nav-links {
   list-style: none;
   padding: 0;
