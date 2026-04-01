@@ -46,6 +46,58 @@ const steps = [
   },
 ]
 
+const pricingPlans = [
+  {
+    subtitle: 'Perfect for getting started',
+    name: 'Starter',
+    price: 0,
+    period: 'month',
+    features: [
+      'Access to 10 free tools',
+      'Basic templates',
+      'Community support',
+      '1 project per month',
+    ],
+    cta: 'Get Started Free',
+    highlighted: false,
+    badge: '',
+  },
+  {
+    subtitle: 'Best for professionals',
+    name: 'Pro',
+    price: 29,
+    period: 'month',
+    features: [
+      'Access to all premium tools',
+      'Unlimited templates',
+      'Priority support',
+      'Unlimited projects',
+      'Cloud sync',
+      'Advanced analytics',
+    ],
+    cta: 'Start Pro Trial',
+    highlighted: true,
+    badge: 'Most Popular',
+  },
+  {
+    subtitle: 'For teams and businesses',
+    name: 'Enterprise',
+    price: 99,
+    period: 'month',
+    features: [
+      'Everything in Pro',
+      'Team collaboration',
+      'Custom integrations',
+      'Dedicated support',
+      'SLA guarantee',
+      'Custom branding',
+    ],
+    cta: 'Contact Sales',
+    highlighted: false,
+    badge: '',
+  },
+]
+
 function App() {
   const [activeView, setActiveView] = useState('products')
   const [cartItems, setCartItems] = useState([])
@@ -292,6 +344,136 @@ function App() {
           </div>
         </div>
       </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:px-6 lg:px-8" id="pricing">
+        <h2 className="text-center text-4xl font-black text-slate-900">Simple, Transparent Pricing</h2>
+        <p className="mt-2 text-center text-slate-600">Choose the plan that fits your needs. Upgrade or downgrade anytime.</p>
+
+        <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {pricingPlans.map((plan) => (
+            <article
+              key={plan.name}
+              className={`relative rounded-2xl border p-6 ${
+                plan.highlighted
+                  ? 'brand-bg border-indigo-500 text-white shadow-2xl'
+                  : 'border-slate-200 bg-white text-slate-900 shadow-sm'
+              }`}
+            >
+              {plan.badge ? (
+                <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-100 px-4 py-1 text-xs font-semibold text-amber-700">
+                  {plan.badge}
+                </span>
+              ) : null}
+              <p className={`text-sm ${plan.highlighted ? 'text-white/80' : 'text-slate-500'}`}>
+                {plan.subtitle}
+              </p>
+              <h3 className="mt-1 text-2xl font-black">{plan.name}</h3>
+              <p className="mt-4 text-5xl font-black">
+                ${plan.price}
+                <span className="text-base font-medium">/{plan.period}</span>
+              </p>
+              <ul className="mt-4 space-y-2 text-sm">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-center gap-2">
+                    <span>✓</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <button
+                className={`mt-6 w-full rounded-full px-5 py-3 text-sm font-semibold ${
+                  plan.highlighted
+                    ? 'bg-white text-indigo-700'
+                    : 'brand-bg text-white shadow-lg'
+                }`}
+              >
+                {plan.cta}
+              </button>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <footer className="bg-slate-950 text-slate-300">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-6 lg:px-8">
+          <div className="lg:col-span-2">
+            <h3 className="text-3xl font-black text-white">DigiTools</h3>
+            <p className="mt-3 max-w-sm text-sm text-slate-400">
+              Premium digital tools for creators, 
+              <br/>professionals, and businesses. Work
+              smarter <br/>with our suite of powerful tools.
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-white">Product</h4>
+            <ul className="mt-3 space-y-2 text-sm text-slate-400">
+              <li>Features</li>
+              <li>Pricing</li>
+              <li>Templates</li>
+              <li>Integrations</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-white">Company</h4>
+            <ul className="mt-3 space-y-2 text-sm text-slate-400">
+              <li>About</li>
+              <li>Blog</li>
+              <li>Careers</li>
+              <li>Press</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-white">Resources</h4>
+            <ul className="mt-3 space-y-2 text-sm text-slate-400">
+              <li>Documentation</li>
+              <li>Help Center</li>
+              <li>Community</li>
+              <li>Contact</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-white">Social Links</h4>
+            <div className="mt-3 flex items-center gap-3">
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-bold text-slate-900"
+              >
+                <i className="fa-brands fa-facebook" />
+              </a>
+              <a
+                href="#"
+                aria-label="X"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-bold text-slate-900"
+              >
+                <i className="fa-brands fa-square-x-twitter" />
+              </a>
+              <a
+                href="#"
+                aria-label="YouTube"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-bold text-slate-900"
+              >
+                <i className="fa-brands fa-youtube" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-slate-800">
+          <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-4 py-8 text-slate-500 sm:px-6 md:flex-row lg:px-8">
+            <p>© 2026 DigiTools. All rights reserved.</p>
+            <div className="flex items-center gap-8 text-sm">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Cookies</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
