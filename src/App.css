@@ -95,9 +95,13 @@
   box-shadow: 0 8px 20px rgba(79, 69, 230, 0.28);
 }
 
-.hero-placeholder {
-  height: 56px;
-  border-top: 1px solid #edf1f5;
+.brand-bg {
+  background: #4f45e6;
+}
+
+.hero-glow {
+  border-radius: 28px;
+  background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.2), rgba(99, 102, 241, 0));
 }
 
 @media (max-width: 1300px) {
